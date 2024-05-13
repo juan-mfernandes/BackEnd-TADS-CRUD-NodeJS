@@ -1,6 +1,7 @@
 const express = require("express");
 const server = express();
 const { moviesRouter } = require('./routes/movies.js');
+const { userRouter } = require('./routes/users.js');
 
 server.use("/health", (req, res) => {
     res.send("Working!");
@@ -13,5 +14,6 @@ server.listen(port, () =>{
  
 server.use(express.json());
 server.use("/api", moviesRouter);
+server.use("/api", userRouter);
 
 module.exports = server;
